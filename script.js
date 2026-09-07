@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const API_BASE = "https://mansik-santulan-score.onrender.com";
+  const API_BASE = "https://mental-health-scorer-v74g.onrender.com";
 
   const form = document.getElementById("predict-form");
   const submitBtn = document.getElementById("submit-btn");
@@ -17,7 +17,6 @@
   const scoreBandEl = document.getElementById("score-band");
   const scoreContextEl = document.getElementById("score-context");
   const gaugeFill = document.getElementById("gauge-fill");
-  const errorLabelEl = document.getElementById("error-label");
   const errorCopyEl = document.getElementById("error-copy");
 
   const GAUGE_ARC_LENGTH = 314; // approx pi * r(100)
@@ -201,10 +200,10 @@
   }
 
   function renderError(label, copy) {
-    errorLabelEl.textContent = label;
-    errorCopyEl.textContent = copy;
-    showState("error");
-  }
+  errorCopyEl.textContent = `${label}: ${copy}`;
+  showState("error");
+}
+  
 
   // ---------------------------------------------------------
   // Parse FastAPI / Pydantic 422 error responses into
